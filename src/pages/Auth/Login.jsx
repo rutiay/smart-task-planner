@@ -5,7 +5,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const loginSubmitHandler = (e) => {
     e.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
@@ -13,30 +13,26 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <h2 className={styles.title}>Login</h2>
+      <form onSubmit={loginSubmitHandler}>
+        <h2>Login</h2>
 
-        <label className={styles.label}>Email</label>
+        <label>Email</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className={styles.input}
         />
 
-        <label className={styles.label}>Password</label>
+        <label>Password</label>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className={styles.input}
         />
 
-        <button type="submit" className={styles.button}>
-          Log In
-        </button>
+        <button type="submit">Log In</button>
       </form>
     </div>
   );

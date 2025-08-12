@@ -1,9 +1,12 @@
 // import styles from './Dashboard.module.css';
+import TaskForm from "../../components/TaskForm/TaskForm.jsx";
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <div>
+      <TaskForm />
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

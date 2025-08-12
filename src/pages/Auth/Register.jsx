@@ -17,16 +17,15 @@ const Register = () => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <h2 className={styles.title}>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <h2>Register</h2>
 
-        <label className={styles.label}>Name</label>
+        <label>Name</label>
         <input
           type="text"
           value={user.name}
           onChange={(e) => setUser({ ...user, name: e.target.value })}
           required
-          className={styles.input}
         />
 
         <label className={styles.label}>Email</label>
@@ -35,19 +34,17 @@ const Register = () => {
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
           required
-          className={styles.input}
         />
 
-        <label className={styles.label}>Password</label>
+        <label>Password</label>
         <input
           type="password"
           value={user.password}
           onChange={(e) => setUser({ ...user, password: e.target.value })}
           required
-          className={styles.input}
         />
 
-        <label className={styles.label}>Confirm Password</label>
+        <label>Confirm Password</label>
         <input
           type="password"
           value={user.confirmPassword}
@@ -58,9 +55,7 @@ const Register = () => {
           className={styles.input}
         />
 
-        <button type="submit" className={styles.button}>
-          Log In
-        </button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
