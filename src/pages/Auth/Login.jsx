@@ -7,8 +7,6 @@ const Login = () => {
 
   const loginSubmitHandler = (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
   };
 
   return (
@@ -16,17 +14,19 @@ const Login = () => {
       <form onSubmit={loginSubmitHandler}>
         <h2>Login</h2>
 
-        <label>Email</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
+          id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
 
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
+          id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
