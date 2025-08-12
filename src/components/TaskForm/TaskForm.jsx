@@ -3,11 +3,17 @@ import { useContext } from "react";
 import { TaskContext } from "../../context/TaskContext";
 
 const TaskForm = () => {
-  const { task, setTask, addTask } = useContext(TaskContext);
+  const { task, setTask, addTask, editTask, editId, setEditId } =
+    useContext(TaskContext);
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    addTask(task);
+    if (editId) {
+      editTask(task);
+      setEditId(null);
+    } else {
+      addTask(task);
+    }
   };
 
   return (
@@ -34,7 +40,7 @@ const TaskForm = () => {
           type="date"
           id="date"
           value={task.date}
-          onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
+          onChange={(e) => setTask({ ...task, date: e.target.value })}
           required
         />
         <label htmlFor="priority">Priority</label>
@@ -48,7 +54,7 @@ const TaskForm = () => {
           <option value="medium">Medium</option>
           <option value="low">Low</option>
         </select>
-        <button type="submit">Add</button>
+        <button type="submit">{editId ? "Update" : "Add"}</button>
       </form>
     </div>
   );

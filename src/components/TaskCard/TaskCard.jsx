@@ -1,23 +1,40 @@
-// import styles from './TaskCard.module.css';
-import { useContext } from "react";
-import { TaskContext } from "../../context/TaskContext";
+import styles from './TaskCard.module.css';
 
-const TaskCard = ({ task }) => {
-  const { deleteTask } = useContext(TaskContext);
+const TaskCard = ({ task, onDelete, onEdit }) => {
 
-  const deleteHandler = (id) => {
-    deleteTask(id);
-  };
+    const priorityClass =
+    task.priority === "high"
+      ? styles.high
+      : task.priority === "medium"
+      ? styles.medium
+      : styles.low;
+
   return (
-    <div>
-      <h2>{task.title}</h2>
-      <p>{task.description}</p>
-      <span>{task.priority}</span>
-      <span>{task.date}</span>
-      <button type="button" onClick={() => deleteHandler(task.id)}>
-        Delete
-      </button>
-      <button type="button">Edit</button>
+    <div className={styles.card}>
+      <h2 className={styles.title}>{task.title}</h2>
+      <p className={styles.description}>{task.description}</p>
+
+      <div className={styles.meta}>
+        <span className={`${styles.priority} ${priorityClass}`}>{task.priority}</span>
+        <span className={styles.date}>{task.date}</span>
+      </div>
+
+      <div className={styles.actions}>
+        <button
+          type="button"
+          className={`${styles.button} ${styles.delete}`}
+          onClick={() => onDelete(task.id)}
+        >
+          Delete
+        </button>
+        <button
+          type="button"
+          className={`${styles.button} ${styles.edit}`}
+          onClick={() => onEdit(task.id)}
+        >
+          Edit
+        </button>
+      </div>
     </div>
   );
 };
