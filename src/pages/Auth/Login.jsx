@@ -1,5 +1,6 @@
-import styles from "./Auth.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Auth.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ const Login = () => {
 
         <label htmlFor="email">Email</label>
         <input
+          placeholder="Email"
           type="email"
           id="email"
           value={email}
@@ -25,6 +27,7 @@ const Login = () => {
 
         <label htmlFor="password">Password</label>
         <input
+          placeholder="Password"
           type="password"
           id="password"
           value={password}
@@ -34,6 +37,8 @@ const Login = () => {
 
         <button type="submit">Log In</button>
       </form>
+
+      <p>Not a member? <Link to='/register'>Sign up now</Link></p>
     </div>
   );
 };

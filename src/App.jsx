@@ -3,21 +3,24 @@ import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import { TaskContextProvider } from "./context/TaskContext";
+import { AuthContextProvider } from "./context/AuthContetx";
 
 const App = () => {
   return (
-    <TaskContextProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+    <AuthContextProvider>
+      <TaskContextProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard />} />
 
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      </BrowserRouter>
-    </TaskContextProvider>
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
+        </BrowserRouter>
+      </TaskContextProvider>
+    </AuthContextProvider>
   );
 };
 

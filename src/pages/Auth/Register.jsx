@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContetx";
 import styles from "./Auth.module.css";
 
 const Register = () => {
+
+  const navigate = useNavigate();
+
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -9,8 +14,16 @@ const Register = () => {
     confirmPassword: "",
   });
 
+  const {addNewUser} = useContext(AuthContext);
+
   const registerSubmitHandler = (e) => {
     e.preventDefault();
+    if(user.password !== user.confirmPassword){
+      alert("wrong");
+      return;
+    }
+    addNewUser(user);
+    navigate('/dashboard')
   };
 
   return (
@@ -58,6 +71,8 @@ const Register = () => {
 
         <button type="submit">Register</button>
       </form>
+
+          <p>Already have an account? <Link to='/login'>Login here</Link></p>
     </div>
   );
 };
