@@ -1,8 +1,12 @@
 // import styles from './Header.module.css';
 
-const Header = () => {
+const Header = ({user}) => {
   return (
-    <div>Header</div>
+    <div>
+      <header>
+        <h1>Hello, {user.name}</h1>
+      </header>
+    </div>
   )
 }
 

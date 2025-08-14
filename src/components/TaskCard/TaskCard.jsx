@@ -11,8 +11,8 @@ const TaskCard = ({ task, onDelete, onEdit }) => {
 
   return (
     <div className={styles.card}>
-      <h2 className={styles.title}>{task.title}</h2>
-      <p className={styles.description}>{task.description}</p>
+      <h2>{task.title}</h2>
+      <p>{task.description}</p>
 
       <div className={styles.meta}>
         <span className={`${styles.priority} ${priorityClass}`}>{task.priority}</span>
@@ -22,14 +22,12 @@ const TaskCard = ({ task, onDelete, onEdit }) => {
       <div className={styles.actions}>
         <button
           type="button"
-          className={`${styles.button} ${styles.delete}`}
           onClick={() => onDelete(task.id)}
         >
           Delete
         </button>
         <button
           type="button"
-          className={`${styles.button} ${styles.edit}`}
           onClick={() => onEdit(task.id)}
         >
           Edit
