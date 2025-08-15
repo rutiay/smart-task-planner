@@ -6,28 +6,33 @@ const USERS_TOKEN_LOCAL_STORAGE = "users";
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
+  const [users, setUsers] = useState([]);
+  // const [auth, setAuth] = useState(null);
 
-    const [users, setUsers] = useState([])
-    // const [auth, setAuth] = useState(null);
+  useEffect(() => {
+    const usersArr =
+      JSON.parse(localStorage.getItem(USERS_TOKEN_LOCAL_STORAGE)) || [];
 
-    useEffect(() => {
-      const usersArr = JSON.parse(localStorage(USERS_TOKEN_LOCAL_STORAGE)) || [];
-      setUsers(usersArr);
-    },[])
+    setUsers(usersArr);
+  }, []);
 
-    const addNewUser = (user) => {
-        setUsers((prev) => {
-          const usersArr =  [...prev, {...user, id: uuidv4()}];
-          localStorage.setItem(USERS_TOKEN_LOCAL_STORAGE, JSON.stringify(usersArr));
-          return usersArr;
-        })     
-    }
+  const addNewUser = (user) => {
+    setUsers((prev) => {
+      const usersArr = [...prev, { ...user, id: uuidv4() }];
+      localStorage.setItem(USERS_TOKEN_LOCAL_STORAGE, JSON.stringify(usersArr));
+      return usersArr;
+    });
+  };
 
-    // const login = (user) => {
-      
-    // }
+  // const login = (user) => {
 
-  return <AuthContext.Provider value={{users, addNewUser}}>{children}</AuthContext.Provider>;
+  // }
+
+  return (
+    <AuthContext.Provider value={{ users, addNewUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export { AuthContext, AuthContextProvider };
