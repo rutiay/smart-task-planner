@@ -1,3 +1,4 @@
+import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 import styles from './TaskCard.module.css';
 
 const TaskCard = ({ task, onDelete, onEdit }) => {
@@ -32,6 +33,7 @@ const TaskCard = ({ task, onDelete, onEdit }) => {
         >
           Edit
         </button>
+        <IoCheckmarkDoneCircleOutline className={styles.completeBtn}/>
       </div>
     </div>
   );

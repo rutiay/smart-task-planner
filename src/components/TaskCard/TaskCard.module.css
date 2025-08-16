@@ -62,7 +62,19 @@ button:first-of-type:hover{
   background-color: #f12828;
 }
 
-button:last-of-type {
+button {
   background-color: #4da6ff;
   color: white;
+}
+
+.completeBtn{
+  font-size: 2.5rem;
+  background-color: transparent;
+  color: black;
+  margin: -1rem 0.2rem;
+}
+
+.completeBtn:hover{
+  color: rgb(58, 207, 58);
+  background-color: transparent;
 }
