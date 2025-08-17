@@ -5,7 +5,8 @@ import TaskCard from "../../components/TaskCard/TaskCard.jsx";
 import TaskForm from "../../components/TaskForm/TaskForm.jsx";
 
 const Dashboard = () => {
-  const { setTask, tasks, deleteTask, setEditId } = useContext(TaskContext);
+  const { setTask, tasks, deleteTask, setEditId, completeTask } =
+    useContext(TaskContext);
 
   const editHandler = (id) => {
     setEditId(id);
@@ -27,11 +28,14 @@ const Dashboard = () => {
               task={task}
               onDelete={deleteTask}
               onEdit={editHandler}
+              onCompletion={completeTask}
             />
           ))}
         </div>
       ) : (
-        <p className={styles.emptyMessage}>No tasks yet. Start by adding one!</p>
+        <p className={styles.emptyMessage}>
+          No tasks yet. Start by adding one!
+        </p>
       )}
     </div>
   );

@@ -11,7 +11,7 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-p{
+p {
   font-size: 1rem;
   color: #555;
   margin-bottom: 0.5rem;
@@ -58,7 +58,7 @@ button:first-of-type {
   color: white;
 }
 
-button:first-of-type:hover{
+button:first-of-type:hover {
   background-color: #f12828;
 }
 
@@ -67,14 +67,18 @@ button {
   color: white;
 }
 
-.completeBtn{
+.completeBtn {
   font-size: 2.5rem;
   background-color: transparent;
   color: black;
   margin: -1rem 0.2rem;
 }
 
-.completeBtn:hover{
+.completeBtn:hover {
   color: rgb(58, 207, 58);
   background-color: transparent;
+}
+
+.completedCard {
+  opacity: 0.5;
 }

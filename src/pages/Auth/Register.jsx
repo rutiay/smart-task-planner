@@ -4,7 +4,6 @@ import { AuthContext } from "../../context/AuthContetx";
 import styles from "./Auth.module.css";
 
 const Register = () => {
-
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -14,22 +13,22 @@ const Register = () => {
     confirmPassword: "",
   });
 
-  const {addNewUser} = useContext(AuthContext);
+  const { addNewUser } = useContext(AuthContext);
 
   const registerSubmitHandler = (e) => {
     e.preventDefault();
-    if(user.password !== user.confirmPassword){
+    if (user.password !== user.confirmPassword) {
       alert("wrong");
       return;
     }
     addNewUser(user);
-    navigate('/dashboard')
+    navigate("/dashboard");
   };
 
   return (
     <div className={styles.container}>
       <form onSubmit={registerSubmitHandler}>
-        <h2>Register</h2>
+        <h2>REGISTER</h2>
 
         <label htmlFor="name">Name</label>
         <input
@@ -72,7 +71,9 @@ const Register = () => {
         <button type="submit">Register</button>
       </form>
 
-          <p>Already have an account? <Link to='/login'>Login here</Link></p>
+      <p>
+        Already have an account? <Link to="/login">Login here</Link>
+      </p>
     </div>
   );
 };

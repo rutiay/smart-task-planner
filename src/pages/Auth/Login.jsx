@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <form onSubmit={loginSubmitHandler}>
-        <h2>Login</h2>
+        <h2>LOGIN</h2>
 
         <label htmlFor="email">Email</label>
         <input
@@ -38,7 +38,9 @@ const Login = () => {
         <button type="submit">Log In</button>
       </form>
 
-      <p>Not a member? <Link to='/register'>Sign up now</Link></p>
+      <p>
+        Not a member? <Link to="/register">Sign up now</Link>
+      </p>
     </div>
   );
 };

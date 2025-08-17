@@ -60,6 +60,20 @@ const TaskContextProvider = ({ children }) => {
     });
     setTask(initailData);
   };
+
+  const completeTask = (id) => {
+    setTasks((prev) => {
+      const newTaskArr = prev.map((task) =>
+        task.id === id ? { ...task, isCompleted: true } : task
+      );
+      localStorage.setItem(
+        TASKS_TOKEN_LOCAL_STORAGE,
+        JSON.stringify(newTaskArr)
+      );
+      return newTaskArr;
+    });
+  };
+
   return (
     <TaskContext.Provider
       value={{
@@ -71,6 +85,7 @@ const TaskContextProvider = ({ children }) => {
         editTask,
         editId,
         setEditId,
+        completeTask,
       }}
     >
       {children}
