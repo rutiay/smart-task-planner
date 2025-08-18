@@ -64,7 +64,7 @@ const TaskContextProvider = ({ children }) => {
   const completeTask = (id) => {
     setTasks((prev) => {
       const newTaskArr = prev.map((task) =>
-        task.id === id ? { ...task, isCompleted: true } : task
+        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
       );
       localStorage.setItem(
         TASKS_TOKEN_LOCAL_STORAGE,

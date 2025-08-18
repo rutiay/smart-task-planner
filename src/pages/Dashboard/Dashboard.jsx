@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { TaskContext } from "../../context/TaskContext.jsx";
 import TaskCard from "../../components/TaskCard/TaskCard.jsx";
 import TaskForm from "../../components/TaskForm/TaskForm.jsx";
+import Header from "../../components/Header/Header.jsx";
 
 const Dashboard = () => {
   const { setTask, tasks, deleteTask, setEditId, completeTask } =
@@ -16,6 +17,7 @@ const Dashboard = () => {
 
   return (
     <div className={styles.dashboard}>
+      <Header user={{name: "Jack"}}/>
       <div className={styles.taskFormWrapper}>
         <TaskForm />
       </div>
